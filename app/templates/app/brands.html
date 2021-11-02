@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Brands | {% endblock %}
+
+{% block content %}
+    <h1 class="display-3">BRANDS</h1>
+    <div class="columns is-multiline">
+        {% for brand in brands %}
+            <div class="column is-3">
+                <div class="box">
+                    <h2 class="subtitle">{{ brand.name }}</h2>
+                    <centre>
+                        {% if brand.image %}
+                            <img style="height: 200px; width: 100%; display: block;" src="{{ brand.image.url }}">
+                        {% else %}
+                            <img style="height: 200px; width: 100%; display: block;" src="https://via.placeholder.com/240x180.jpg">
+                        {% endif %}
+
+                  
+                    </centre>
+                
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}

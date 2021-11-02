@@ -1,0 +1,40 @@
+{% extends "app/base.html" %}
+{% block title %}{{ v.model }} | {% endblock %}
+{% block content %}
+<center>
+<div class="card mb-3" style="max-width: 40rem;">
+  <h3 class="card-header">{{v}}</h3>
+  <div class="card-body">
+    <h5 class="card-title">{{v.description}}</h5>
+    <h6 class="card-subtitle text-muted">{{v.price}} TL</h6>
+  </div>
+  <img style="height: 200px; width: 100%; display: block;" src="{{ v.photo.url}}" alt="Car image">
+  <div class="card-body">
+    <p class="card-text"></p>
+  </div>
+  <ul class="list-group list-group-flush" style="text-align:left;">
+    <li class="list-group-item">Model : {{v.model}}</li>
+    <li class="list-group-item">Brand : {{v.brand}}</li>
+    <li class="list-group-item">Km : {{v.km}}</li>
+	<li class="list-group-item">Engine : {{v.engine}}</li>
+	<li class="list-group-item">Transmission : {{v.transmission}}</li>
+	<li class="list-group-item">Fuel : {{v.fuel}}</li>
+    <li class="list-group-item">Color : {{v.color}}</li>
+    <li class="list-group-item">Category : {{v.category}}</li>
+    <li class="list-group-item">Firm : {{v.firm}}</li>
+  </ul>
+  <div class="card-body">
+    <a class="btn btn-outline-warning" href="#"> Get this page as a PDF! </a>
+  </div>
+  <div class="card-footer text-muted">
+
+    <a class="btn btn-secondary btn-lg btn-block" href="#">Buy</a>
+
+    <a class="btn btn-secondary btn-lg btn-block" href="#">Please login to buy something</a>
+    
+
+  </div>
+</div>
+</center>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "app/base.html" %}
+{% block title %}Vehicle List | {% endblock %}
+{% block content %}
+    <article class="content-section">
+        <h1 class="display-3">LIST OF ALL VEHICLES</h1>
+        <hr>
+        <br>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>MODEL</th>
+                    <th>BRAND</th>
+                    <th>SPEED</th>
+                    <th>AVERAGE SPEED</th>
+                    <th>TEMPERATURE</th>
+                    <th>ENGINE</th>
+                    <th>FUEL LEVEL</th>
+                    <th>PRICE</th>
+                    <th>UPDATE</th>
+                    <th>DELETE</th>
+                </tr>
+            </thead>
+            <body>
+                
+                {% for vehicle in vehicles %}
+                <tr>
+                    <td><a href="{% url 'vehicle' vehicle.id %}">{{ vehicle.model }}</td></a>
+                    <td>{{ vehicle.brand }}</td>
+                    <td>{{ vehicle.speed }}</td>
+                    <td>{{ vehicle.average_speed }}</td>
+                    <td>{{ vehicle.temperature }}</td>
+                    <td>{{ vehicle.engine }}</td>
+                    <td>{{ vehicle.fuel_level }}</td>
+                    <td>{{ vehicle.price }}</td>
+                    <td><a href="{% url 'update vehicle' vehicle.id %}">UPDATE</td></a>
+                    <td><a href="{% url 'delete vehicle' vehicle.id %}">DELETE</td></a>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td class="article-title" colspan="4">No Data Present</td>
+                </tr>
+                {% endfor %}
+            </body>
+        </table>
+{% endblock content %}

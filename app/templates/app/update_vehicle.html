@@ -1,0 +1,12 @@
+{% extends "app/base.html" %}
+{% block title %}Update Vehicle | {% endblock %}
+{% load bootstrap3%}
+{% block content %}
+<div class="jumbotron">
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% bootstrap_form form %}			
+		<button class="button is-success is-uppercase" type="submit">Update</button>					
+	</form>
+</div>
+{% endblock %}

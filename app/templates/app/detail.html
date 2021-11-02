@@ -1,0 +1,110 @@
+{% extends "app/base.html" %}
+{% block title %}Vehicle | {% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="flex-container">
+    <div class="card-body">
+  
+      <button type="button" class="btn btn-dark">CAM 1</button>
+      <button type="button" class="btn btn-dark">CAM 2</button>
+    
+      <button class="btn btn-outline-danger" type="button">OFF</button>
+      <button class="btn btn-outline-success" type="button">ON</button>
+
+      <a href="{% url 'update vehicle' vehicle.id %}" class="button is-success is-uppercase" type="submit">Update Vehicle</a>
+      <br>
+      <br>
+    
+    
+      <div id='map' style='width: 700px; height: 500px; float: right;'></div>
+        <script>
+          mapboxgl.accessToken = 'pk.eyJ1Ijoic2Fsdmk5ODAwIiwiYSI6ImNrdmk1enk1aDFwdzMyb24zYmd4a3AxamoifQ.IjhiICnL1SjTDWVQ7Qzc0w';
+          var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v11'
+          });
+        </script>
+        <br>
+        <br>
+        
+      <style>
+                  
+        /* Float four columns side by side */
+
+        .column {
+          float: left;
+          width: 27%;
+          padding: 0 10px;
+          padding-bottom: 25px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {margin: 0 -5px;}
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
+          .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+          }
+        }
+
+        /* Style the counter cards */
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          padding: 16px;
+          text-align: center;
+          background-color: #f1f1f1;
+        }
+      </style>
+
+      <div class="column">
+        <div class="card">
+          <h2>SPEED</h2>
+          <h3>{{ vehicle.speed }} Km/h</h3>          
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <h2>AVERAGE SPEED</h2>
+          <h3>{{ vehicle.average_speed }} Km/h</h3>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <h2>TEMPERATURE</h2>
+          <h3>{{ vehicle.temperature }} Celsius</h3>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card" style="margin-top:25px;">
+          <h2>FUEL LEVEL</h2>
+          <h3>{{ vehicle.fuel_level }} units</h3>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card" style="margin-top:25px;">
+          <h2>ENGINE</h2>
+          <h3>{{ vehicle.engine }} hp</h3>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

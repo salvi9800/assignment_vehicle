@@ -1,0 +1,26 @@
+{% extends "app/base.html" %}
+{% block title %}Delete Vehicle | {% endblock %}
+{% block content %}
+<center>
+    <div class="card mb-3" style="max-width: 40rem;">
+      <h3 class="card-header">{{vehicle}}</h3>
+      <div class="card-body">
+        <h6 class="card-subtitle text-muted">Rs. {{vehicle.price}}</h6>
+      </div>
+      <img style="height: 200px; width: 100%; display: block;" src="{{ vehicle.photo.url }}" alt="Car image">
+      <div class="card-body">
+        <p class="card-text"></p>
+      </div>
+      <ul class="list-group list-group-flush" style="text-align:left;">
+        <li class="list-group-item">Model : {{vehicle.model}}</li>
+        <li class="list-group-item">Brand : {{vehicle.brand}}</li>
+        <li class="list-group-item">Speed : {{vehicle.speed}}</li>
+        <li class="list-group-item">Average Speed : {{vehicle.average_speed}}</li>
+        <li class="list-group-item">Fuel Level : {{vehicle.fuel_level}}</li>
+      </ul>
+      <div class="card-body">
+        <a href="{% url 'delete' vehicle.id %}" class="button is-danger is-uppercase">Delete</a>
+      </div>
+    </div>
+</center>
+{% endblock %}
